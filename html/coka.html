@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Classic Coke</title>
+
+<!-- CSS（修正：全部改相對路徑） -->
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/coka.css">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo-area">
+        <img src="../img/Logo (2).jpg" alt="logo">
+        <h1 class="logo">Ink墨染</h1>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="../index.html">首頁</a></li>
+        <li><a href="menu.html">酒單</a></li>
+        <li><a href="#">活動</a></li>
+        <li><a href="#">關於我們</a></li>
+    </ul>
+
+    <div class="nav-actions">
+        <a href="#" class="team-btn">組員介紹</a>
+        <a href="#" class="member-btn">會員</a>
+        <a href="#" class="cart-btn">購物車</a>
+    </div>
+</nav>
+
+<!-- PRODUCT -->
+<div class="product-container">
+
+  <div class="product-img">
+    <img src="../img/drink1.png" alt="Classic Coke">
+  </div>
+
+  <div class="product-info">
+    <h1>Classic Coke</h1>
+
+    <p>經典玻璃瓶可樂，冰涼氣泡帶來最純粹的暢快感受。</p>
+
+    <div class="price">$50</div>
+
+    <div class="qty-box">
+      <button onclick="minus()">-</button>
+      <span id="qty">1</span>
+      <button onclick="plus()">+</button>
+    </div>
+
+    <button class="add-btn" onclick="addToCart()">加入購物車</button>
+  </div>
+
+</div>
+
+<!-- COMMENT -->
+<div class="comment-section">
+  <h2>留言</h2>
+
+  <textarea id="commentInput" placeholder="寫下你的想法..."></textarea>
+
+  <button class="add-btn" onclick="addComment()">送出留言</button>
+
+  <div id="comments"></div>
+</div>
+
+<script>
+let qty = 1;
+
+function plus(){
+  qty++;
+  document.getElementById("qty").innerText = qty;
+}
+
+function minus(){
+  if(qty > 1){
+    qty--;
+    document.getElementById("qty").innerText = qty;
+  }
+}
+
+function addToCart(){
+  alert("已加入購物車：" + qty + " 瓶 Classic Coke");
+}
+
+function addComment(){
+  const text = document.getElementById("commentInput").value;
+
+  if(text.trim() === ""){
+    alert("請輸入留言");
+    return;
+  }
+
+  const div = document.createElement("div");
+  div.className = "comment";
+  div.innerText = text;
+
+  document.getElementById("comments").appendChild(div);
+
+  document.getElementById("commentInput").value = "";
+}
+</script>
+
+</body>
+</html>

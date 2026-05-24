@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Ink墨染</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/menu.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+<nav class="navbar">
+    <div class="logo-area">
+        <img src="../img/Logo (2).jpg " alt="logo">
+        <h1 class="logo">Ink墨染</h1>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="../index.html">首頁</a></li>
+        <li><a href="menu.html">酒單</a></li>
+        <li><a href="#">活動</a></li>
+        <li><a href="#">關於我們</a></li>
+    </ul>
+
+    <div class="nav-actions">
+        <a href="#" class="team-btn">組員介紹</a>
+        <a href="#" class="member-btn">會員</a>
+        <a href="#" class="cart-btn">購物車</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="menu-hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Premium Spirits</h1>
+    <p>精選酒款 · 高品質烈酒收藏</p>
+  </div>
+</header>
+
+<section class="category-bar">
+  <div class="category">軟性飲料</div>
+  <div class="category">啤酒</div>
+  <div class="category">基酒</div>
+  <div class="category">烈酒</div>
+  <div class="category">經典調酒</div>
+
+</section>
+<!-- PRODUCT GRID -->
+<section class="grid">
+
+  <div class="card">
+  <a href="/html/coka.html" >
+    
+    <img src="../img/Gemini_Generated_Image_j0qvghj0qvghj0qv.png" alt="Classic Coke" />
+
+    <h3>Classic Coke</h3>
+
+    <p>
+      經典玻璃瓶可樂，<br>
+      冰涼氣泡帶來最純粹的暢快感受。
+    </p>
+
+    <span>$50</span>
+
+  </a>
+</div>
+
+  <div class="card" onclick="openModal('Hennessy VSOP', 420)">
+    <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553" />
+    <h3>Lemon Sprite</h3>
+    <p>
+    清爽檸檬香氣，
+    打造輕盈沁涼的夏日口感。
+    </p>
+    <span>$50</span>
+  </div>
+
+  <div class="card" onclick="openModal('Negroni', 300)">
+    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87" />
+    <h3>Premium Tonic</h3>
+    <p>
+    細緻氣泡與微苦層次，
+    適合純飲與調製風味飲品。
+    </p>
+
+  <span>$60</span>
+  </div>
+  <div class="card" onclick="openModal('Negroni', 300)">
+    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87" />
+    <h3>Ginger Ale</h3>
+
+    <p>
+    微辛薑香融合細緻氣泡，
+    帶來清爽又層次豐富的口感體驗。
+    </p>
+
+<span>$60</span>
+  </div>
+
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-box">
+
+    <h2 id="modal-title"></h2>
+    <p>價格：<span id="modal-price"></span></p>
+
+    <div class="qty">
+      <button onclick="changeQty(-1)">-</button>
+      <span id="qty">1</span>
+      <button onclick="changeQty(1)">+</button>
+    </div>
+
+    <button class="buy-btn">加入購物車</button>
+
+    <button class="close" onclick="closeModal()">關閉</button>
+
+  </div>
+</div>
+
+<script>
+let qty = 1;
+
+function openModal(name, price){
+  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modal-title").innerText = name;
+  document.getElementById("modal-price").innerText = "$" + price;
+  qty = 1;
+  document.getElementById("qty").innerText = qty;
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display = "none";
+}
+
+function changeQty(v){
+  qty = Math.max(1, qty + v);
+  document.getElementById("qty").innerText = qty;
+}
+</script>
+
+</body>
+</html>
